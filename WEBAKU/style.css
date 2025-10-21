@@ -1,0 +1,376 @@
+/* style.css — dikopi utuh dari versi HTML, dengan perbaikan object-fit */
+:root {
+  --primary: #b65b5b;
+  --bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(182, 91, 91, 1) 0%,
+    rgba(182, 91, 91, 0.9) 100%
+  );
+}
+
+.navbar-logo {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.navbar-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-extra {
+  margin-left: auto;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.admin-btn {
+  background: #fff;
+  color: var(--primary);
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* unified nav white button used by LOGIN and ADMIN */
+.btn-nav {
+  box-sizing: border-box;
+  width: 110px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #fff;
+  color: var(--primary);
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+/* style untuk tombol Login agar terlihat seperti tombol Admin */
+#loginBtn {
+  background: #fff;
+  color: var(--primary);
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+#loginBtn:hover,
+.admin-btn:hover {
+  opacity: 0.95;
+}
+
+/* aturan lebih spesifik untuk memastikan styling diterapkan di dalam navbar-extra */
+.navbar-extra #loginBtn {
+  display: inline-block;
+  line-height: 1;
+  transition: background 150ms ease, opacity 150ms ease, transform 120ms ease;
+}
+
+.navbar-extra .admin-btn,
+.navbar-extra #loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-extra .admin-btn {
+  /* ensure consistent sizing for ADMIN button in the navbar */
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+}
+
+.navbar-extra #loginBtn {
+  /* LOGIN should be uppercase but not bold */
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+}
+
+/* make both white-background buttons visually the same size */
+.navbar-extra .admin-btn,
+.navbar-extra #loginBtn {
+  min-width: 88px;
+  text-align: center;
+}
+
+/* force identical box size for both buttons */
+.navbar-extra .admin-btn,
+.navbar-extra #loginBtn {
+  box-sizing: border-box;
+  width: 110px; /* fixed width to make boxes identical */
+  height: 38px; /* fixed height for consistent appearance */
+  padding: 0; /* padding handled by height/line-height */
+}
+
+.navbar-extra .admin-btn > span,
+.navbar-extra #loginBtn > span {
+  display: inline-block;
+}
+
+.navbar-extra .admin-btn,
+.navbar-extra #loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-extra #loginBtn:active {
+  transform: translateY(1px);
+}
+
+.cart-badge {
+  background: #fff;
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.hero {
+  padding: 6rem 2rem;
+  /* gunakan gambar makananbg1.jpg yang ada di folder img/ */
+  background-image: url("img/makananbg1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* pastikan hero cukup tinggi agar gambar terlihat dan teks/CTA terpusat */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* overlay gelap untuk membuat teks CTA lebih terbaca */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero .content h1 {
+  font-size: 2.25rem;
+}
+.hero .content p {
+  margin: 1rem auto;
+  max-width: 700px;
+}
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+/* Inline admin login card (appears under hero) */
+.inline-admin {
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+.inline-admin-card {
+  background: #fff;
+  color: #222;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.inline-admin-card input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+}
+
+.btn-white:hover {
+  opacity: 0.95;
+}
+
+.btn-white:active {
+  transform: translateY(1px);
+}
+
+.menu {
+  padding: 3rem 2rem;
+  color: #222;
+}
+.menu h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  background: #fff;
+  cursor: pointer;
+}
+.tab-btn.active {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.menu-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+}
+.menu-card img {
+  width: 100%;
+  height: 140px;
+  /* PERBAIKAN: Mengubah 'cover' menjadi 'contain' agar gambar tidak terpotong */
+  object-fit: contain; 
+  border-radius: 8px;
+}
+.add-to-cart {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+.modal .modal-content {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  color: #222; /* Set warna teks di modal menjadi gelap */
+}
+.modal .close {
+  cursor: pointer;
+  float: right;
+  font-size: 1.25rem;
+}
+
+.about {
+  padding: 3rem 2rem;
+  background: #f7f7f7;
+  color: #222;
+}
+.footer {
+  background: linear-gradient(
+    90deg,
+    rgba(182, 91, 91, 1) 0%,
+    rgba(182, 91, 91, 0.9) 100%
+  );
+  color: #fff;
+  padding: 2rem;
+}
+.footer-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.review-upload input,
+.review-upload button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem;
+}
+.review-list li {
+  list-style: none;
+  margin-bottom: 0.75rem;
+}
+
+/* small responsive tweaks */
+@media (max-width: 700px) {
+  .navbar-nav {
+    display: none;
+  }
+  .hero .content h1 {
+    font-size: 1.6rem;
+  }
+}
