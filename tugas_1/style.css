@@ -1,0 +1,292 @@
+/* ================================================= */
+/* --- 1. RESET DAN FONT --- */
+/* ================================================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Warna dasar laut muda */
+    color: #333;
+    scroll-behavior: smooth; /* Untuk scrolling yang halus saat klik menu */
+}
+
+/* ================================================= */
+/* --- 2. HEADER DAN BANNER --- */
+/* ================================================= */
+header {
+    /* Ganti 'bunaken-header.jpg' dengan nama file gambar header Anda */
+    background: linear-gradient(rgba(0, 50, 80, 0.6), rgba(0, 50, 80, 0.8)), url('img/bgbunaken3.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+header p {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+/* Banner/Galeri Foto Kegiatan Wisata (Kolase) */
+.banner-gallery {
+    background-color: #00bcd4; 
+    padding: 20px 0;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-item {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Placeholder gambar Banner/Kolase. Harap Ganti URL ini! */
+.item-1 { background-image: url('img/ikan.jpg'); }
+.item-2 { background-image: url('img/pesisir.jpg'); }
+.item-3 { background-image: url('img/kapal.jpg'); }
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* ================================================= */
+/* --- 3. NAVIGASI (MENU APLIKASI) --- */
+/* ================================================= */
+.main-nav {
+    background-color: #004d7a; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Menu menempel di atas */
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: #007bff; 
+    color: #07ffc5; 
+}
+
+/* ================================================= */
+/* --- 4. KONTEN UTAMA DAN KARTU --- */
+/* ================================================= */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.content-section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px; /* Sedikit ruang ekstra */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.package-cards {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1 1 45%; /* Menampilkan 2 kartu per baris di layar besar */
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #e6f7ff;
+}
+
+/* ================================================= */
+/* --- 5. RESPONSIVE VIDEO EMBED (PERBAIKAN UKURAN) --- */
+/* ================================================= */
+.video-container {
+    position: relative;
+    /* Ubah dari 700px menjadi 560px */
+    max-width: 400px; 
+    margin-left: auto;  /* Pusatkan di tengah */
+    margin-right: 80%; /* Pusatkan di tengah */
+    width: 100%; 
+    /* Mengatur rasio aspek 16:9 */
+    padding-bottom: 30%; 
+    height: 0;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================= */
+/* --- 6. GALERI --- */
+/* ================================================= */
+.galery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+}
+
+.galery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.galery-item img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.galery-item img:hover {
+    transform: scale(1.05); 
+}
+
+/* ================================================= */
+/* --- 7. FORMULIR PEMESANAN --- */
+/* ================================================= */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* ================================================= */
+/* --- 8. FOOTER --- */
+/* ================================================= */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+/* ================================================= */
+/* --- 9. RESPONSIVITAS (MEDIA QUERIES) --- */
+/* ================================================= */
+
+@media (max-width: 992px) {
+    .galery-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .package-cards .card {
+        flex: 1 1 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr; 
+    }
+    .main-nav ul {
+        flex-wrap: wrap; 
+        justify-content: space-around;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    /* Di layar kecil, biarkan video mengisi hampir penuh */
+    .video-container {
+        max-width: 95%; 
+    }
+}
+
+@media (max-width: 576px) {
+    .galery-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
